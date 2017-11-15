@@ -96,8 +96,8 @@ export default {
       topNegativeGivers: [],
     };
   },
-  created() {
-    setInterval(() => {
+  methods: {
+    query() {
       const API_URL = process.env.API_URL;
       axios.get(`${API_URL}/api/receivers/T3QDS4TNY`)
           .then((response) => {
@@ -129,6 +129,11 @@ export default {
           .catch((e) => {
             this.errors.push(e);
           });
+    }
+  },
+  created() {
+    setInterval(() => {
+      this.query()
     }, 2 * 1000 * 60);
   },
 };
