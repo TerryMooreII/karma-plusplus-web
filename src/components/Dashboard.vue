@@ -97,37 +97,39 @@ export default {
     };
   },
   created() {
-    const API_URL = process.env.API_URL;
-    axios.get(`${API_URL}/api/receivers/T3QDS4TNY`)
-    .then((response) => {
-      this.topReceivers = response.data;
-    })
-    .catch((e) => {
-      this.errors.push(e);
-    });
+    setInterval(() => {
+      const API_URL = process.env.API_URL;
+      axios.get(`${API_URL}/api/receivers/T3QDS4TNY`)
+          .then((response) => {
+            this.topReceivers = response.data;
+          })
+          .catch((e) => {
+            this.errors.push(e);
+          });
 
-    axios.get(`${API_URL}/api/channels/T3QDS4TNY`)
-    .then((response) => {
-      this.topChannels = response.data;
-    })
-    .catch((e) => {
-      this.errors.push(e);
-    });
+      axios.get(`${API_URL}/api/channels/T3QDS4TNY`)
+          .then((response) => {
+            this.topChannels = response.data;
+          })
+          .catch((e) => {
+            this.errors.push(e);
+          });
 
-    axios.get(`${API_URL}/api/givers/T3QDS4TNY?orderBy=positiveKarma`)
-    .then((response) => {
-      this.topPostiveGivers = response.data;
-    })
-    .catch((e) => {
-      this.errors.push(e);
-    });
-    axios.get(`${API_URL}/api/givers/T3QDS4TNY?orderBy=negativeKarma`)
-    .then((response) => {
-      this.topNegativeGivers = response.data;
-    })
-    .catch((e) => {
-      this.errors.push(e);
-    });
+      axios.get(`${API_URL}/api/givers/T3QDS4TNY?orderBy=positiveKarma`)
+          .then((response) => {
+            this.topPostiveGivers = response.data;
+          })
+          .catch((e) => {
+            this.errors.push(e);
+          });
+      axios.get(`${API_URL}/api/givers/T3QDS4TNY?orderBy=negativeKarma`)
+          .then((response) => {
+            this.topNegativeGivers = response.data;
+          })
+          .catch((e) => {
+            this.errors.push(e);
+          });
+    }, 2 * 1000 * 60);
   },
 };
 </script>
