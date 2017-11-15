@@ -1,13 +1,5 @@
 <template>
-  <!-- <div class="columns is-mobile">
-    <div class="column">1</div>
-    <div class="column">2</div>
-    <div class="column">3</div>
-    <div class="column">4</div>
-  </div> -->
-
   <div>
-
   <div class="columns">
     <div class="column">
       <nav class="panel">
@@ -25,23 +17,7 @@
         </div>
       </nav>
     </div>
-    <div class="column">
-      <nav class="panel">
-        <p class="panel-heading">
-          Top Negative Karma++ Givers
-        </p>
-        <div class="panel-block">
-          <table class="table is-fullwidth">
-            <tr v-for="user in topNegativeGivers" :key="user.userId">
-              <td><img class="image is-48_48 is-rounded" :src="user.user.user.profile.image_48"></td>
-              <td class="is-size-5">{{user.user.user.real_name}}</td>
-              <td class="is-size-5 has-text-right">{{user.positiveKarma}}</td>
-            </tr>
-          </table>
-        </div>
-      </nav>
-    </div>
-   
+
     <div class="column">
       <nav class="panel">
         <p class="panel-heading">
@@ -58,6 +34,25 @@
         </div>
       </nav>
     </div>
+
+    <div class="column">
+      <nav class="panel">
+        <p class="panel-heading">
+          Top Negative Karma++ Givers
+        </p>
+        <div class="panel-block">
+          <table class="table is-fullwidth">
+            <tr v-for="user in topNegativeGivers" :key="user.userId">
+              <td><img class="image is-48_48 is-rounded" :src="user.user.user.profile.image_48"></td>
+              <td class="is-size-5">{{user.user.user.real_name}}</td>
+              <td class="is-size-5 has-text-right">{{user.negativeKarma}}</td>
+            </tr>
+          </table>
+        </div>
+      </nav>
+    </div>
+   
+    
     </div>
       <div class="columns">
     <div class="column">
