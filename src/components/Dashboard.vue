@@ -102,7 +102,8 @@ export default {
     };
   },
   created() {
-    axios.get('http://Terrys-MBP.attlocal.net:3000/api/receivers/T3QDS4TNY')
+    const API_URL = process.env.API_URL
+    axios.get(API_URL + '/api/receivers/T3QDS4TNY')
     .then((response) => {
       this.topReceivers = response.data;
     })
@@ -110,7 +111,7 @@ export default {
       this.errors.push(e);
     });
 
-    axios.get('http://Terrys-MBP.attlocal.net:3000/api/channels/T3QDS4TNY')
+    axios.get(API_URL + '/api/channels/T3QDS4TNY')
     .then((response) => {
       this.topChannels = response.data;
     })
@@ -118,14 +119,14 @@ export default {
       this.errors.push(e);
     });
 
-    axios.get('http://Terrys-MBP.attlocal.net:3000/api/givers/T3QDS4TNY?orderBy=positiveKarma')
+    axios.get(API_URL + '/api/givers/T3QDS4TNY?orderBy=positiveKarma')
     .then((response) => {
       this.topPostiveGivers = response.data;
     })
     .catch((e) => {
       this.errors.push(e);
     });
-    axios.get('http://Terrys-MBP.attlocal.net:3000/api/givers/T3QDS4TNY?orderBy=negativeKarma')
+    axios.get(API_URL + '/api/givers/T3QDS4TNY?orderBy=negativeKarma')
     .then((response) => {
       this.topNegativeGivers = response.data;
     })
