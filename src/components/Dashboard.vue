@@ -133,7 +133,7 @@ export default {
   },
   created() {
     setInterval(() => {
-      this.query()
+      this.query();
     }, 2 * 1000 * 60);
   },
 };
